@@ -1,0 +1,24 @@
+{
+  "extends": ["react-app", "react-app/jest", "prettier"],
+  "rules": {
+    "no-duplicate-imports": "error",
+    "no-duplicate-case": "error",
+    "no-invalid-this": "error",
+    "no-empty-function": "warn",
+    "no-empty": "warn",
+    "no-extra-bind": "error",
+    "no-extra-semi": "error",
+    "no-lone-blocks": "error",
+    "no-multiple-empty-lines": "warn",
+    "no-useless-rename": "error",
+
+    "array-callback-return": "warn",
+
+    "default-case": "error",
+    "default-case-last": "warn",
+
+    "prefer-const": "warn",
+    "semi": ["error", "never"],
+    "camelcase": "warn"
+  }
+}

@@ -1,0 +1,48 @@
+/*
+ * Fonts
+ *
+ * Use transfonter.org to add a new font.
+ */
+
+// Source Sans Pro
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../../fonts/source-sans-pro/SourceSansPro-Regular.woff2") format("woff2"),
+    url("../../fonts/source-sans-pro/SourceSansPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../../fonts/source-sans-pro/SourceSansPro-Bold.woff2") format("woff2"),
+    url("../../fonts/source-sans-pro/SourceSansPro-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../../fonts/source-sans-pro/SourceSansPro-Light.woff2") format("woff2"),
+    url("../../fonts/source-sans-pro/SourceSansPro-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin source-sans-pro {
+  font-family: "Source Sans Pro";
+  font-weight: normal;
+}
+
+@mixin source-sans-pro--bold {
+  font-family: "Source Sans Pro";
+  font-weight: bold;
+}
+
+@mixin source-sans-pro--light {
+  font-family: "Source Sans Pro";
+  font-weight: 300;
+}

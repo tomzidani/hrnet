@@ -1,0 +1,14 @@
+/*
+ * Media Queries
+ */
+@import "sass-mq";
+
+$mq-responsive: true;
+
+$mq-breakpoints: (
+  mobile: map-get($breakpoints, mobile),
+  tablet: map-get($breakpoints, tablet),
+  desktop: map-get($breakpoints, desktop),
+  wide: map-get($breakpoints, wide),
+  _wide: map-get($breakpoints, _wide),
+);

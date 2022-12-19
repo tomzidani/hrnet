@@ -1,0 +1,23 @@
+/*
+ * Global
+ */
+html {
+  font-size: map-get($settings, font-size);
+  scroll-behavior: smooth;
+}
+
+body {
+  @include source-sans-pro;
+  background: map-get($settings, bg-color);
+  color: map-get($settings, text-color);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: map-get($settings, text-color);
+}
