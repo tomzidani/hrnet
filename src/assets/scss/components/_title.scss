@@ -1,0 +1,21 @@
+/*
+ * Title
+ */
+.title {
+  @include source-sans-pro--bold;
+
+  &.title-- {
+    // Size
+    &l {
+      font-size: 22px;
+    }
+
+    &m {
+      font-size: 20px;
+    }
+
+    &s {
+      font-size: 16px;
+    }
+  }
+}
