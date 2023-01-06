@@ -1,4 +1,4 @@
-import { FC, useState } from "react"
+import { FC, ReactElement } from "react"
 
 type SelectOption = {
   value: string
@@ -26,7 +26,12 @@ const Select: FC<SelectProps> = ({ label, id, className, options, value, onChang
     for: id,
   }
 
-  const displayOptions = () => {
+  /**
+   * Display select options.
+   *
+   * @returns {JSX.Element[]}
+   */
+  const displayOptions = (): JSX.Element[] => {
     return options.map(({ value, label }, k) => <option value={value}>{label}</option>)
   }
 

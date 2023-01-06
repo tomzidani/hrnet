@@ -1,5 +1,5 @@
-import { useState } from "react"
 import Rodal from "rodal"
+import { FormEvent, useState } from "react"
 import { Link } from "react-router-dom"
 import { Title } from "@components/content"
 import { Container } from "@components/layout"
@@ -8,12 +8,20 @@ import HomeForm from "./HomeForm"
 const Home = () => {
   const [isModalVisible, setIsModalVisible] = useState(false)
 
-  const submitForm = (e: any) => {
+  /**
+   * Submit the create employee form.
+   *
+   * @param {FormEvent} e
+   */
+  const submitForm = (e: FormEvent) => {
     e.preventDefault()
 
     setIsModalVisible(true)
   }
 
+  /**
+   * Close the modal.
+   */
   const onModalClose = () => {
     setIsModalVisible(false)
   }

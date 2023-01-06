@@ -9,12 +9,12 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { Table } from "@components/content"
-import { Button, Input } from "@components/form"
+import { Button, Input, Select } from "@components/form"
 
 interface EmployeesTableProps {}
 
 const EmployeesTable: FC<EmployeesTableProps> = () => {
-  const [tableData, setTableData] = useState(employeesData)
+  const [tableData] = useState(employeesData)
   const [tableSorting, setTableSorting] = useState<SortingState>([])
   const [tableGlobalFilter, setTableGlobalFilter] = useState("")
 
@@ -30,23 +30,16 @@ const EmployeesTable: FC<EmployeesTableProps> = () => {
     getPaginationRowModel: getPaginationRowModel(),
   })
 
-  const displayTableFilters = () => {
+  /**
+   * Display table filters elements like number of rows,
+   * or the search bar.
+   *
+   * @returns {JSX.Element}
+   */
+  const displayTableFilters = (): JSX.Element => {
     return (
       <div className="employees__filters">
-        <div className="employees__count">
-          Voir
-          <select
-            value={table.getState().pagination.pageSize}
-            onChange={(e) => table.setPageSize(parseInt(e.target.value))}
-          >
-            {[2, 5, 10, 15, 20].map((size) => (
-              <option key={size} value={size}>
-                {size}
-              </option>
-            ))}
-          </select>
-          entrées
-        </div>
+        <div className="employees__count">{displayNumberOfRows()}</div>
 
         <div className="employees__search">
           <Input
@@ -60,7 +53,54 @@ const EmployeesTable: FC<EmployeesTableProps> = () => {
     )
   }
 
-  const displayTablePagination = () => {
+  /**
+   * Display select element for the number of rows
+   * to display in the table.
+   *
+   * @returns {JSX.Element}
+   */
+  const displayNumberOfRows = (): JSX.Element => {
+    const selectOptions = [
+      {
+        label: "2",
+        value: "2",
+      },
+      {
+        label: "5",
+        value: "5",
+      },
+      {
+        label: "10",
+        value: "10",
+      },
+      {
+        label: "15",
+        value: "15",
+      },
+    ]
+
+    const selectProps = {
+      value: table.getState().pagination.pageSize.toString(),
+      options: selectOptions,
+      onChange: (e: ChangeEvent<HTMLSelectElement>) => table.setPageSize(parseInt(e.target.value)),
+    }
+
+    return (
+      <>
+        Voir
+        <Select {...selectProps}></Select>
+        entrées
+      </>
+    )
+  }
+
+  /**
+   * Display table pagination as pagination counter,
+   * and pagination navigation.
+   *
+   * @returns {JSX.Element}
+   */
+  const displayTablePagination = (): JSX.Element => {
     return (
       <div className="employees__pagination">
         <div className="pagination__count">

@@ -12,6 +12,11 @@ interface DateProps {
 }
 
 const Date: FC<DateProps> = ({ label, value, onChange, id }) => {
+  /**
+   * On date change handler.
+   *
+   * @param {Date} date
+   */
   const onDateChange = (date: Date) => {
     onChange(date, id)
   }

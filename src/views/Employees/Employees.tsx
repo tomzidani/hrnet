@@ -1,6 +1,6 @@
-import { Container } from "@/components/layout"
 import { FC } from "react"
 import { Link } from "react-router-dom"
+import { Container } from "@components/layout"
 import EmployeesHeading from "./EmployeesHeading"
 import EmployeesTable from "./EmployeesTable"
 

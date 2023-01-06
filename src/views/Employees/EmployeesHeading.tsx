@@ -1,5 +1,5 @@
-import { Title } from "@components/content"
 import { FC } from "react"
+import { Title } from "@components/content"
 
 interface EmployeesHeadingProps {}
 

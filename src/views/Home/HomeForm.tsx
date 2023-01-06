@@ -21,11 +21,22 @@ const initialFormValues = {
 const HomeForm: FC<HomeFormProps> = ({ submitForm }) => {
   const [formValues, setFormValues] = useState(initialFormValues)
 
+  /**
+   * Handle the react form value state on input change.
+   *
+   * @param {ChangeEvent<HTMLInputElement>} e
+   */
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
   }
 
-  const onDateChange = (date: any, id: string) => {
+  /**
+   * Handle the react form value state on datepicker input change.
+   *
+   * @param {Date} date
+   * @param {string} id
+   */
+  const onDateChange = (date: Date, id: string) => {
     setFormValues({ ...formValues, [id]: date })
   }
 
