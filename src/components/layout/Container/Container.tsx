@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react"
 
 interface ContainerProps {
   children: ReactNode
-  size?: "m" | "l"
+  size?: "s" | "m" | "l"
 }
 
 const Container: FC<ContainerProps> = ({ children, size = "m" }) => {

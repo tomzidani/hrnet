@@ -1,0 +1,19 @@
+/*
+ * Fieldset component.
+ */
+fieldset {
+  display: flex;
+  padding: 15px;
+  gap: 15px;
+
+  flex-direction: column;
+  border: solid 2px $blue;
+
+  legend {
+    padding: 5px;
+
+    font-size: 14px;
+    color: $white;
+    background: $blue;
+  }
+}

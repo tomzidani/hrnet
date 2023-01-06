@@ -7,8 +7,8 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({ children, ...props }) => {
   const buttonProps = {
-    className: `btn ${props.className}`,
     ...props,
+    className: `btn ${props.className}`,
   }
 
   return <button {...buttonProps}>{children}</button>

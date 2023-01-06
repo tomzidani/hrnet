@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { Button, Fieldset, Form, Input, Row } from "@components/form"
 import { Title } from "@components/content"
 import { Container } from "@components/layout"
@@ -9,12 +10,19 @@ const Home = () => {
 
   return (
     <main className="app-home">
-      <Container>
+      <Container size="s">
         <section className="home__header">
-          <Title>HR Net</Title>
+          <Title size="l" tag="h1">
+            HR Net
+          </Title>
+          <Link to="/employes" className="home__employees">
+            Voir les employés actuels
+          </Link>
         </section>
         <section className="home__form">
-          <Title>Créer un employé</Title>
+          <Title size="m" className="home__title">
+            Créer un employé
+          </Title>
           <Form onSubmit={submitForm}>
             <Row>
               <Input label="Prénom" id="firstname" />

@@ -1,0 +1,19 @@
+/*
+ * Button component.
+ */
+.btn {
+  padding: 5px 15px;
+
+  color: $white;
+  background: $blue;
+  border: solid 2px $blue;
+
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+
+  &:hover,
+  &:focus {
+    color: $blue;
+    background: transparent;
+  }
+}

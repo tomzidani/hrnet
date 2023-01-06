@@ -1,0 +1,17 @@
+input {
+  &[type="text"],
+  &[type="number"],
+  &[type="tel"],
+  &[type="email"] {
+    padding: 5px;
+
+    border: solid 2px $grey-blue;
+    transition: ease-in-out 0.2s;
+
+    &:active,
+    &:focus {
+      border-color: $blue;
+      box-shadow: 0px 2px 11px #00000017;
+    }
+  }
+}

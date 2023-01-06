@@ -19,9 +19,14 @@
 /*
  * Page
  */
+@import "./page/home";
 @import "./page/employees";
 
 /*
  * Components
  */
 @import "./components/title";
+@import "./components/form";
+@import "./components/input";
+@import "./components/fieldset";
+@import "./components/button";

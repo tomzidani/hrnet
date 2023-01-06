@@ -1,6 +1,10 @@
 /*
  * Global
  */
+* {
+  outline: none;
+}
+
 html {
   font-size: map-get($settings, font-size);
   scroll-behavior: smooth;
