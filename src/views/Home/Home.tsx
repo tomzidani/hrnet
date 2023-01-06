@@ -1,11 +1,22 @@
+import { useState } from "react"
+import Rodal from "rodal"
 import { Link } from "react-router-dom"
 import { Button, Fieldset, Form, Input, Row } from "@components/form"
 import { Title } from "@components/content"
 import { Container } from "@components/layout"
+import HomeForm from "./HomeForm"
 
 const Home = () => {
-  const submitForm = () => {
-    alert("Employee created !")
+  const [isModalVisible, setIsModalVisible] = useState(false)
+
+  const submitForm = (e: any) => {
+    e.preventDefault()
+
+    setIsModalVisible(true)
+  }
+
+  const onModalClose = () => {
+    setIsModalVisible(false)
   }
 
   return (
@@ -19,40 +30,16 @@ const Home = () => {
             Voir les employés actuels
           </Link>
         </section>
-        <section className="home__form">
-          <Title size="m" className="home__title">
-            Créer un employé
-          </Title>
-          <Form onSubmit={submitForm}>
-            <Row>
-              <Input label="Prénom" id="firstname" />
-            </Row>
-            <Row>
-              <Input label="Nom" id="lastname" />
-            </Row>
-            <Row>
-              <Input label="Date de naissance" id="date-of-birth" type="date" />
-            </Row>
-            <Row>
-              <Input label="Date de début" id="start-date" type="date" />
-            </Row>
-            <Fieldset legend="Adresse">
-              <Row>
-                <Input label="Rue" id="street" />
-              </Row>
-              <Row>
-                <Input label="Ville" id="city" />
-              </Row>
-              <Row>
-                <Input label="Code postal" id="zip-code" />
-              </Row>
-            </Fieldset>
-            <Row>
-              <Button>Enregistrer</Button>
-            </Row>
-          </Form>
-        </section>
+        <HomeForm submitForm={submitForm} />
       </Container>
+
+      {/* Modal */}
+      {isModalVisible && (
+        <Rodal visible={isModalVisible} onClose={onModalClose} closeOnEsc className="modal">
+          <div className="modal__close" onClick={onModalClose}></div>
+          Bonjour !
+        </Rodal>
+      )}
     </main>
   )
 }
