@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, useState } from "react"
 import { Title } from "@components/content"
-import { Button, Fieldset, Form, Input, Row } from "@components/form"
+import { Button, Date as DateInput, Fieldset, Form, Input, Row } from "@components/form"
 
 interface HomeFormProps {
   submitForm: any
@@ -9,8 +9,8 @@ interface HomeFormProps {
 const initialFormValues = {
   firstName: "",
   lastName: "",
-  dateOfBirth: "",
-  startDate: "",
+  dateOfBirth: new Date(),
+  startDate: new Date(),
   street: "",
   city: "",
   zipCode: "",
@@ -21,6 +21,10 @@ const HomeForm: FC<HomeFormProps> = ({ submitForm }) => {
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
+  }
+
+  const onDateChange = (date: any, id: string) => {
+    setFormValues({ ...formValues, [id]: date })
   }
 
   return (
@@ -36,16 +40,15 @@ const HomeForm: FC<HomeFormProps> = ({ submitForm }) => {
           <Input label="Nom" id="lastName" value={formValues.lastName} onChange={onChange} />
         </Row>
         <Row>
-          <Input
+          <DateInput
             label="Date de naissance"
-            id="dateOfBirth"
-            type="date"
             value={formValues.dateOfBirth}
-            onChange={onChange}
+            onChange={onDateChange}
+            id="dateOfBirth"
           />
         </Row>
         <Row>
-          <Input label="Date de début" id="startDate" type="date" value={formValues.startDate} onChange={onChange} />
+          <DateInput label="Date de début" value={formValues.startDate} onChange={onDateChange} id="startDate" />
         </Row>
         <Fieldset legend="Adresse">
           <Row>
