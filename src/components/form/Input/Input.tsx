@@ -5,12 +5,16 @@ interface InputProps {
   id: string
   label: string
   type?: "text" | "date" | "number"
+  onChange?: any
+  value?: string
 }
 
-const Input: FC<InputProps> = ({ id, label, type = "text" }) => {
+const Input: FC<InputProps> = ({ id, label, type = "text", onChange, value }) => {
   const inputAttributes = {
     id,
     type,
+    onChange,
+    value,
   }
 
   return (

@@ -1,0 +1,104 @@
+/*
+ * Employees page.
+ */
+.app-employees {
+  padding: 50px 0;
+
+  .employees {
+    &__heading {
+      text-align: center;
+    }
+
+    &__filters {
+      display: flex;
+      padding: 20px 0;
+
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__search,
+    &__count {
+      display: flex;
+      gap: 10px;
+
+      align-items: center;
+    }
+
+    &__count {
+      gap: 5px;
+    }
+
+    &__table {
+      table {
+        width: 100%;
+
+        background: $grey;
+
+        th,
+        td {
+          padding: 10px 5px;
+
+          font-size: 15px;
+          vertical-align: middle;
+          text-align: center;
+        }
+
+        th {
+          padding: 15px 5px;
+          background: $blue;
+
+          color: $white;
+          @include source-sans-pro--bold;
+          text-align: center;
+
+          > span {
+            cursor: pointer;
+            transition: opacity ease-in-out 0.2s;
+
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+
+        tr:nth-child(even) {
+          background: $grey-blue;
+        }
+      }
+    }
+
+    &__pagination {
+      display: flex;
+      padding: 15px 0;
+
+      align-items: center;
+      justify-content: space-between;
+
+      .pagination {
+        &__nav {
+          display: flex;
+          gap: 5px;
+
+          align-items: center;
+        }
+      }
+      button:disabled {
+        opacity: 0.7;
+      }
+    }
+
+    &__back {
+      display: block;
+
+      font-size: 14px;
+      text-align: center;
+
+      transition: color ease-in-out 0.2s;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+}

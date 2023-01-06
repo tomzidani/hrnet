@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom"
 
-import { Home, NotFound } from "@views"
+import { Employees, Home, NotFound } from "@views"
 
 const App = () => (
   <Routes>
     <Route path="/" element={<Home />} />
+
+    <Route path="/employes" element={<Employees />} />
 
     <Route path="*" element={<NotFound />} />
   </Routes>
