@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, useState } from "react"
 import { Title } from "@components/content"
-import { Button, Date as DateInput, Fieldset, Form, Input, Row } from "@components/form"
+import { Button, Date as DateInput, Fieldset, Form, Input, Row, Select } from "@components/form"
+import { states } from "@utils/providers/states.provider"
 
 interface HomeFormProps {
   submitForm: any
@@ -13,6 +14,7 @@ const initialFormValues = {
   startDate: new Date(),
   street: "",
   city: "",
+  state: "",
   zipCode: "",
 }
 
@@ -56,6 +58,9 @@ const HomeForm: FC<HomeFormProps> = ({ submitForm }) => {
           </Row>
           <Row>
             <Input label="Ville" id="city" value={formValues.city} onChange={onChange} />
+          </Row>
+          <Row>
+            <Select options={states} value={formValues.state} onChange={onChange} id="state" />
           </Row>
           <Row>
             <Input label="Code postal" id="zipCode" value={formValues.zipCode} onChange={onChange} />

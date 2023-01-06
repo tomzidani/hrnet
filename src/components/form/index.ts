@@ -6,6 +6,7 @@ import Label from "./Label/Label"
 
 import Input from "./Input/Input"
 import Date from "./Date/Date"
+import Select from "./Select/Select"
 import Button from "./Button/Button"
 
-export { Form, Row, Label, Input, Date, Button, Fieldset }
+export { Form, Row, Label, Input, Date, Select, Button, Fieldset }
