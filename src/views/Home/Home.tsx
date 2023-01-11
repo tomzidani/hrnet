@@ -44,7 +44,7 @@ const Home = () => {
       {isModalVisible && (
         <Rodal visible={isModalVisible} onClose={onModalClose} closeOnEsc className="modal">
           <div className="modal__close" onClick={onModalClose}></div>
-          Bonjour !
+          Employé créé avec succès !
         </Rodal>
       )}
     </main>
