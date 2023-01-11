@@ -2,7 +2,6 @@
   "name": "hrnet-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tomzidani.github.io/hrnet",
   "dependencies": {
     "@tanstack/react-table": "^8.7.4",
     "@testing-library/jest-dom": "^5.14.1",
@@ -13,7 +12,6 @@
     "@types/react": "^18.0.0",
     "@types/react-datepicker": "^4.8.0",
     "@types/react-dom": "^18.0.0",
-    "gh-pages": "^4.0.0",
     "react": "^18.2.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
@@ -27,9 +25,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "craco eject"
   },
   "browserslist": {
     "production": [
