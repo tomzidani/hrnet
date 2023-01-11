@@ -1,6 +1,7 @@
+import { Select } from "tz-react-simple-select"
 import { ChangeEvent, FC, useState } from "react"
 import { Title } from "@components/content"
-import { Button, Date as DateInput, Fieldset, Form, Input, Row, Select } from "@components/form"
+import { Button, Date as DateInput, Fieldset, Form, Input, Row } from "@components/form"
 import { states } from "@utils/providers/states.provider"
 
 interface HomeFormProps {
@@ -16,6 +17,7 @@ const initialFormValues = {
   city: "",
   state: "",
   zipCode: "",
+  department: "",
 }
 
 const HomeForm: FC<HomeFormProps> = ({ submitForm }) => {
@@ -71,12 +73,42 @@ const HomeForm: FC<HomeFormProps> = ({ submitForm }) => {
             <Input label="Ville" id="city" value={formValues.city} onChange={onChange} />
           </Row>
           <Row>
-            <Select options={states} value={formValues.state} onChange={onChange} id="state" />
+            <Select label="État" options={states} value={formValues.state} onChange={onChange} id="state" />
           </Row>
           <Row>
             <Input label="Code postal" id="zipCode" value={formValues.zipCode} onChange={onChange} />
           </Row>
         </Fieldset>
+        <Row>
+          <Select
+            label="Département"
+            options={[
+              {
+                label: "Ventes",
+                value: "sales",
+              },
+              {
+                label: "Marketing",
+                value: "marketing",
+              },
+              {
+                label: "Informatique",
+                value: "engineering",
+              },
+              {
+                label: "Ressources humaines",
+                value: "hr",
+              },
+              {
+                label: "Légal",
+                value: "legal",
+              },
+            ]}
+            value={formValues.department}
+            onChange={onChange}
+            id="department"
+          />
+        </Row>
         <Row>
           <Button>Enregistrer</Button>
         </Row>

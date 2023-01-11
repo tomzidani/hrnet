@@ -9,7 +9,8 @@ import {
   useReactTable,
 } from "@tanstack/react-table"
 import { Table } from "@components/content"
-import { Button, Input, Select } from "@components/form"
+import { Button, Input } from "@components/form"
+import { Select } from "tz-react-simple-select"
 
 interface EmployeesTableProps {}
 
