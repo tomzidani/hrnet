@@ -17,9 +17,9 @@ const initialFormValues = {
   startDate: new Date(),
   street: "",
   city: "",
-  state: "",
+  state: states[0].value,
   zipCode: "",
-  department: "",
+  department: "sales",
 }
 
 const HomeForm: FC<HomeFormProps> = ({ displayConfirmModal }) => {
