@@ -11,11 +11,15 @@ import {
 import { Table } from "@components/content"
 import { Button, Input } from "@components/form"
 import { Select } from "tz-react-simple-select"
+import LocalStorage from "@/services/LocalStorage"
 
 interface EmployeesTableProps {}
 
 const EmployeesTable: FC<EmployeesTableProps> = () => {
-  const [tableData] = useState(employeesData)
+  const employeesList = LocalStorage.get("employees") || employeesData
+  console.log(employeesList)
+
+  const [tableData] = useState(employeesList)
   const [tableSorting, setTableSorting] = useState<SortingState>([])
   const [tableGlobalFilter, setTableGlobalFilter] = useState("")
 

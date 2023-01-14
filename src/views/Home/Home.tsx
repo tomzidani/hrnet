@@ -1,5 +1,5 @@
 import Rodal from "rodal"
-import { FormEvent, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Title } from "@components/content"
 import { Container } from "@components/layout"
@@ -10,12 +10,8 @@ const Home = () => {
 
   /**
    * Submit the create employee form.
-   *
-   * @param {FormEvent} e
    */
-  const submitForm = (e: FormEvent) => {
-    e.preventDefault()
-
+  const displayConfirmModal = () => {
     setIsModalVisible(true)
   }
 
@@ -37,7 +33,7 @@ const Home = () => {
             Voir les employés actuels
           </Link>
         </section>
-        <HomeForm submitForm={submitForm} />
+        <HomeForm displayConfirmModal={displayConfirmModal} />
       </Container>
 
       {/* Modal */}

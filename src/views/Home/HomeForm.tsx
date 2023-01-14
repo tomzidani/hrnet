@@ -1,11 +1,12 @@
 import { Select } from "tz-react-simple-select"
-import { ChangeEvent, FC, useState } from "react"
+import { ChangeEvent, FC, FormEvent, useState } from "react"
 import { Title } from "@components/content"
 import { Button, Date as DateInput, Fieldset, Form, Input, Row } from "@components/form"
 import { states } from "@utils/providers/states.provider"
+import LocalStorage from "@/services/LocalStorage"
 
 interface HomeFormProps {
-  submitForm: any
+  displayConfirmModal: any
 }
 
 const initialFormValues = {
@@ -20,8 +21,26 @@ const initialFormValues = {
   department: "",
 }
 
-const HomeForm: FC<HomeFormProps> = ({ submitForm }) => {
+const HomeForm: FC<HomeFormProps> = ({ displayConfirmModal }) => {
   const [formValues, setFormValues] = useState(initialFormValues)
+
+  const onFormSubmit = (e: FormEvent) => {
+    e.preventDefault()
+
+    const { startDate, dateOfBirth } = formValues
+
+    const formatStartDate = startDate.toLocaleDateString("fr")
+    const formatDateOfBirth = dateOfBirth.toLocaleDateString("fr")
+
+    // Save data
+    const currentEmployees = LocalStorage.get("employees") || []
+    LocalStorage.set("employees", [
+      ...currentEmployees,
+      { formValues, startDate: formatStartDate, dateOfBirth: formatDateOfBirth },
+    ])
+
+    displayConfirmModal()
+  }
 
   /**
    * Handle the react form value state on input change.
@@ -47,7 +66,7 @@ const HomeForm: FC<HomeFormProps> = ({ submitForm }) => {
       <Title size="m" className="home__title">
         Créer un employé
       </Title>
-      <Form onSubmit={submitForm}>
+      <Form onSubmit={onFormSubmit}>
         <Row>
           <Input label="Prénom" id="firstName" value={formValues.firstName} onChange={onChange} />
         </Row>
