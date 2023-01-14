@@ -18,7 +18,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "typescript": "^4.4.2",
-    "tz-react-simple-select": "^1.0.5",
+    "tz-react-simple-select": "^1.0.8",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
