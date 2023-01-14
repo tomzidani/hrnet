@@ -3,7 +3,8 @@ import { ChangeEvent, FC, FormEvent, useState } from "react"
 import { Title } from "@components/content"
 import { Button, Date as DateInput, Fieldset, Form, Input, Row } from "@components/form"
 import { states } from "@utils/providers/states.provider"
-import LocalStorage from "@/services/LocalStorage"
+import { useAppDispatch } from "@/app/hooks"
+import { add } from "@/app/features/employeeSlice"
 
 interface HomeFormProps {
   displayConfirmModal: any
@@ -23,6 +24,7 @@ const initialFormValues = {
 
 const HomeForm: FC<HomeFormProps> = ({ displayConfirmModal }) => {
   const [formValues, setFormValues] = useState(initialFormValues)
+  const dispatch = useAppDispatch()
 
   const onFormSubmit = (e: FormEvent) => {
     e.preventDefault()
@@ -32,12 +34,7 @@ const HomeForm: FC<HomeFormProps> = ({ displayConfirmModal }) => {
     const formatStartDate = startDate.toLocaleDateString("fr")
     const formatDateOfBirth = dateOfBirth.toLocaleDateString("fr")
 
-    // Save data
-    const currentEmployees = LocalStorage.get("employees") || []
-    LocalStorage.set("employees", [
-      ...currentEmployees,
-      { formValues, startDate: formatStartDate, dateOfBirth: formatDateOfBirth },
-    ])
+    dispatch(add({ ...formValues, startDate: formatStartDate, dateOfBirth: formatDateOfBirth }))
 
     displayConfirmModal()
   }

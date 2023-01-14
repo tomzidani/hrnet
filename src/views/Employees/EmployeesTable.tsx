@@ -1,5 +1,5 @@
 import { FC, useState, ChangeEvent } from "react"
-import { employeesColumns, employeesData } from "@utils/providers/employees.provider"
+import { employeesColumns } from "@utils/providers/employees.provider"
 import {
   getCoreRowModel,
   getFilteredRowModel,
@@ -11,13 +11,14 @@ import {
 import { Table } from "@components/content"
 import { Button, Input } from "@components/form"
 import { Select } from "tz-react-simple-select"
-import LocalStorage from "@/services/LocalStorage"
+import { useAppSelector } from "@/app/hooks"
 
 interface EmployeesTableProps {}
 
 const EmployeesTable: FC<EmployeesTableProps> = () => {
-  const employeesList = LocalStorage.get("employees") || employeesData
-  console.log(employeesList)
+  const employees = useAppSelector((state) => state.employee.employees)
+
+  const employeesList = employees
 
   const [tableData] = useState(employeesList)
   const [tableSorting, setTableSorting] = useState<SortingState>([])
